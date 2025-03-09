@@ -1,0 +1,28 @@
+<div class="container mx-auto px-4 py-20 sm:px-6 lg:px-8">
+  <div class="flex flex-row w-full h-full gap-8 bg-neutral-200 p-4 border-0 rounded">
+    <div class="flex flex-col w-1/2">
+      <div class="flex w-full h-full bg-white border-0 rounded-lg items-center justify-center py-5">
+        <img src={@volume.cover} alt="" class="h-[366px] w-[241px]">
+      </div>
+
+      <.list>
+        <:item title="Autor">{@volume.author}</:item>
+      </.list>
+    </div>
+
+    
+    <div class="flex w-1/2 flex-col gap-16">
+      <b>{@volume.title}</b>
+      <p>{@volume.synopsis}</p>
+      <b>R$ {format_currency(@volume.price)}</b>
+      <div class="flex">
+        <.button> Adicionar </.button>
+
+      </div>
+    </div>
+  </div>
+  <.back navigate={~p"/"}>Voltar</.back>
+</div>
+
+
+

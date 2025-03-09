@@ -1,0 +1,28 @@
+<.header>
+  Listing Volumes
+  <:actions>
+    <.link href={~p"/volumes/new"}>
+      <.button>New Volume</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="volumes" rows={@volumes} row_click={&JS.navigate(~p"/volumes/#{&1}")}>
+  <:col :let={volume} label="Title">{volume.title}</:col>
+  <:col :let={volume} label="Author">{volume.author}</:col>
+  <:col :let={volume} label="Synopsis">{volume.synopsis}</:col>
+  <:col :let={volume} label="Price">{volume.price}</:col>
+  <:col :let={volume} label="Is available">{volume.is_available}</:col>
+  <:col :let={volume} label="Cover">{volume.cover}</:col>
+  <:action :let={volume}>
+    <div class="sr-only">
+      <.link navigate={~p"/volumes/#{volume}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/volumes/#{volume}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={volume}>
+    <.link href={~p"/volumes/#{volume}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

@@ -1,0 +1,8 @@
+<.header>
+  Edit Volume {@volume.id}
+  <:subtitle>Use this form to manage volume records in your database.</:subtitle>
+</.header>
+
+<.volume_form changeset={@changeset} action={~p"/volumes/#{@volume}"} />
+
+<.back navigate={~p"/volumes"}>Back to volumes</.back>
