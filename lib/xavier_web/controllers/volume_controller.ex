@@ -1,8 +1,12 @@
 defmodule XavierWeb.VolumeController do
   use XavierWeb, :controller
 
+  import Phoenix.Component, only: [to_form: 1]
+
+  alias Xavier.Orders.CartItem
   alias Xavier.Catalog
   alias Xavier.Catalog.Volume
+  alias Xavier.Orders
 
   def index(conn, _params) do
     volumes = Catalog.list_volumes()
@@ -28,7 +32,8 @@ defmodule XavierWeb.VolumeController do
 
   def show(conn, %{"id" => id}) do
     volume = Catalog.get_volume!(id)
-    render(conn, :show, volume: volume, layout: false)
+    form = Orders.change_cart_item(%CartItem{ quantity: 1})
+    render(conn, :show, volume: volume, layout: false, form: to_form(form))
   end
 
   def edit(conn, %{"id" => id}) do

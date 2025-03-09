@@ -1,0 +1,22 @@
+<.header>
+  Listing Carts
+  <:actions>
+    <.link href={~p"/carts/new"}>
+      <.button>New Cart</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="carts" rows={@carts} row_click={&JS.navigate(~p"/carts/#{&1}")}>
+  <:action :let={cart}>
+    <div class="sr-only">
+      <.link navigate={~p"/carts/#{cart}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/carts/#{cart}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={cart}>
+    <.link href={~p"/carts/#{cart}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

@@ -1,0 +1,14 @@
+<.header>
+  Cart {@cart.id}
+  <:subtitle>This is a cart record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/carts/#{@cart}/edit"}>
+      <.button>Edit cart</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/carts"}>Back to carts</.back>

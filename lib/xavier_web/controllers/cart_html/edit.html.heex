@@ -1,0 +1,8 @@
+<.header>
+  Edit Cart {@cart.id}
+  <:subtitle>Use this form to manage cart records in your database.</:subtitle>
+</.header>
+
+<.cart_form changeset={@changeset} action={~p"/carts/#{@cart}"} />
+
+<.back navigate={~p"/carts"}>Back to carts</.back>

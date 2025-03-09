@@ -10,19 +10,20 @@
       </.list>
     </div>
 
-    
+
     <div class="flex w-1/2 flex-col gap-16">
       <b>{@volume.title}</b>
       <p>{@volume.synopsis}</p>
       <b>R$ {format_currency(@volume.price)}</b>
-      <div class="flex">
-        <.button> Adicionar </.button>
-
-      </div>
+   
+      <.simple_form for={@form} phx-change="validate" phx-submit="save" class="flex flex-row flex-nowrap">
+        <.input type="hidden" field={@form[:volume_id]} value={@volume.id} />
+        <.input field={@form[:quantity]} label="Quantidade" type="number" min={1}/>
+        <:actions>
+          <.button>Adicionar ao Carrinho</.button>
+        </:actions>
+      </.simple_form>
     </div>
   </div>
   <.back navigate={~p"/"}>Voltar</.back>
 </div>
-
-
-
